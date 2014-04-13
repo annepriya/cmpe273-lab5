@@ -87,6 +87,7 @@ public class BookResource {
     public Response updateBookStatus(@PathParam("isbn") LongParam isbn,
 	    @DefaultValue("available") @QueryParam("status") Status status) {
 	Book book = bookRepository.getBookByISBN(isbn.get());
+	System.out.println("status"+status);
 	book.setStatus(status);
 
 	BookDto bookResponse = new BookDto(book);
